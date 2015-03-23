@@ -1,0 +1,12 @@
+
+<% content_for :title, "Questions | StackOverflow" %>
+
+<h1>StackOverflow</h1>
+
+<ul class="lead list-unstyled">
+  <% @questions.each do |question| %>
+    <li><%= link_to question.inquiry, question_path(question) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a new question", new_question_path %>

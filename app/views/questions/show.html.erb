@@ -1,0 +1,7 @@
+<% content_for :title, "Show Question | StackOverflow" %>
+
+<h1><%= @question.inquiry %></h1>
+
+<%= link_to "Edit question", edit_question_path(@question) %>
+
+<p><%= @question.post %></p>
