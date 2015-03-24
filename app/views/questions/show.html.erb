@@ -9,11 +9,11 @@
 </div>
 
 <% if @comments.any? %>
-  <h3>Answers</h3>
+  <h3>Answers <small><%= link_to "Answer this question", new_question_comment_path(@question) %></small></h3>
 
   <ul class="list-unstyled">
     <% @comments.each do |comment| %>
-      <li><%= comment.answer %> - <%= comment.user %></li>
+      <li class="well well-sm"><%= comment.answer %> - <%= comment.user %></li>
     <% end %>
   </ul>
 <% else %>
