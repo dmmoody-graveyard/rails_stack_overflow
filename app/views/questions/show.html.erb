@@ -1,9 +1,21 @@
-<% content_for :title, "Show Question | StackOverflow" %>
+<% content_for :title, "Question | StackOverflow" %>
 
-<h1><%= @question.inquiry %></h1>
+<h1><%= @question.inquiry %><small> - <%= @question.user %></small></h1>
 
 <%= link_to "Edit question", edit_question_path(@question) %>
 
 <div class="lead">
   <%= simple_format(@question.post) %>
 </div>
+
+<% if @comments.any? %>
+  <h3>Answers</h3>
+
+  <ul class="list-unstyled">
+    <% @comments.each do |comment| %>
+      <li><%= comment.answer %> - <%= comment.user %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p><%= link_to "Be the first to answer this question", new_question_comment_path(@question) %></p>
+<% end %>
