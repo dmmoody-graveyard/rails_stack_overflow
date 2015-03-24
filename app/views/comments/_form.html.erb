@@ -2,6 +2,9 @@
 
 <%= form_for [@question, @comment], :html => {:class => "form-horizontal"} do |f| %>
   <div class="form-group">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div> 
+  <div class="form-group">
     <%= f.label :answer, class: "control-label" %>
     <%= f.text_area :answer, class: "form-control" %>
   </div>

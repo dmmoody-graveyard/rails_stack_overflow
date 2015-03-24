@@ -1,6 +1,6 @@
 <% content_for :title, "Question | StackOverflow" %>
 
-<h1><%= @question.inquiry %><small> - <%= @question.user %></small></h1>
+<h1><%= @question.inquiry %><small> - <%= @question.user.username %></small></h1>
 
 <%= link_to "Edit question", edit_question_path(@question) %>
 
@@ -13,7 +13,7 @@
 
   <ul class="list-unstyled">
     <% @comments.each do |comment| %>
-      <li class="well well-sm"><%= comment.answer %> - <%= comment.user %></li>
+      <li class="well well-sm"><%= comment.answer %> - <%= comment.user.username %></li>
     <% end %>
   </ul>
 <% else %>

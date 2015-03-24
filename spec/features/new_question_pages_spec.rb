@@ -4,7 +4,6 @@ describe 'the add question process' do
   it 'adds a new question' do
     visit questions_path
     click_on "Ask a Question"
-    fill_in "User", :with => 'duane'
     fill_in "Inquiry", :with => "What is recursion?"
     fill_in "Post", :with => "Further explanation"
     click_on "Create Question"
@@ -30,7 +29,6 @@ describe 'the add question process' do
   it 'shows error if inquiry not filled in' do
     visit questions_path
     click_on "Ask a Question"
-    fill_in "User", :with => 'duane'
     fill_in "Post", :with => "Further explanation"
     click_on "Create Question"
     expect(page).to have_content("errors")
@@ -39,7 +37,6 @@ describe 'the add question process' do
   it 'shows error if post not filled in' do
     visit questions_path
     click_on "Ask a Question"
-    fill_in "User", :with => 'duane'
     fill_in "Inquiry", :with => "What is recursion?"
     click_on "Create Question"
     expect(page).to have_content("errors")
