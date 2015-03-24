@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index]
 
   def index
     @questions = Question.all
@@ -39,6 +40,6 @@ class QuestionsController < ApplicationController
 
 private
   def question_params
-    params.require(:question).permit(:user, :inquiry, :post)
+    params.require(:question).permit(:inquiry, :post)
   end
 end

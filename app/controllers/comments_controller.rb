@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index]
+
   def new
     @question = Question.find(params[:question_id])
     @comment = @question.comments.new
@@ -17,6 +19,6 @@ class CommentsController < ApplicationController
 
 private
   def comment_params
-    params.require(:comment).permit(:user, :answer)
+    params.require(:comment).permit(:answer)
   end
 end

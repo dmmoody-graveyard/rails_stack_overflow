@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
   belongs_to :question
-  validates :user, :presence => true
+  belongs_to :user
   validates :answer, :presence => true
 end

@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
   has_many :comments
-  validates :user, :presence => true
+  belongs_to :user
   validates :inquiry, :presence => true
   validates :post, :presence => true
 end
