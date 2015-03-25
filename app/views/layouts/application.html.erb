@@ -24,7 +24,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li><span class="navbar-text">Welcome, <%= current_user.username %></span></li>
+            <li><span class="navbar-text">Welcome, <%= link_to current_user.username, profile_path(current_user.username) %></span></li>
             <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></button></li>
           <% else %>
             <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign in', new_user_session_path %></button></li>
