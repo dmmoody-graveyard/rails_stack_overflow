@@ -85,4 +85,6 @@ Rails.application.configure do
     :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
+
+  config.action_mailer.default_url_options = { host: 'rails-stackoverflow.herokuapp.com' }
 end
