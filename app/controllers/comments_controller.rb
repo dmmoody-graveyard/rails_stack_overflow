@@ -17,6 +17,30 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @question = Question.find(params[:question_id])
+    @comment = @question.comments.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:question_id])
+    @comment = @question.comments.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to question_path(@question)
+      flash[:notice] = "Comment successfully updated"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:question_id])
+    @comment = @question.comments.find(params[:id])
+    @comment.destroy
+    redirect_to question_path(@question)
+    flash[:notice] = "Comment successfully deleted"
+  end
+
 private
   def comment_params
     params.require(:comment).permit(:answer, :user_id)
