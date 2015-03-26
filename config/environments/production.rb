@@ -77,10 +77,10 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   ActionMailer::Base.smtp_settings = {
-    :port           => ENV['587'],
-    :address        => ENV['smtp.mailgun.org'],
-    :user_name      => ENV['postmaster@email.moodyco.de'],
-    :password       => ENV['13889cd3520973f17dbc0e0ac21a92b9'],
+    :port           => ENV['MAILGUN_SMTP_PORT=587'],
+    :address        => ENV['MAILGUN_SMTP_SERVER=smtp.mailgun.org'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN=postmaster@email.moodyco.de'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD=13889cd3520973f17dbc0e0ac21a92b9'],
     :domain         => 'rails-stackoverflow.herokuapp.com',
     :authentication => :plain,
   }
