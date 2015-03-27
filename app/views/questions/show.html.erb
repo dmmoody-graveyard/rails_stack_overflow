@@ -2,7 +2,7 @@
 
 <h1><%= @question.inquiry %><small> - <%= @question.user.username %></small></h1>
 
-<% if current_user.username == @question.user.username %>
+<% if user_signed_in? && current_user.username == @question.user.username %>
   <%= link_to "Edit question", edit_question_path(@question) %>
 <% end %>
 
@@ -17,7 +17,7 @@
     <% @comments.each do |comment| %>
       <li class="well well-sm"><%= simple_format(comment.answer) %> <br />
       - <%= comment.user.username %>
-        <% if current_user.username == comment.user.username %>
+        <% if user_signed_in? && current_user.username == comment.user.username %>
           <%= link_to "Edit", edit_question_comment_path(@question, comment) %> |
           <%= link_to "Delete", question_comment_path(@question, comment),
                                 :data => { :confirm => "You sure?",
