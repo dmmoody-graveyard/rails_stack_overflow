@@ -1,4 +1,4 @@
-<div class="well well-sm">
+<div class="well well-sm" id='comment_<%= comment.id %>'>
   <%= simple_format(comment.answer) %> - <%= comment.user.username %>
   <% if user_signed_in? && current_user == comment.user %>
     <%= link_to "Edit", edit_question_comment_path(@question, comment) %> |

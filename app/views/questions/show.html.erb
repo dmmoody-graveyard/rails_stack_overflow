@@ -3,9 +3,14 @@
 <%= render 'question' %>
 
 <% if user_signed_in? && current_user.username == @question.user.username %>
-  <%= link_to "Edit question", edit_question_path(@question) %>
+  <%= link_to "Edit question", edit_question_path(@question), remote: true %>
 <% end %>
 
-<h3><%= pluralize(@comments.size, 'Answer') %> <small><%= link_to "Answer this question", new_question_comment_path(@question) %></small></h3>
+<h3><%= pluralize(@comments.size, 'Answer') %> <small><%= link_to "Answer this question", new_question_comment_path(@question), remote: true %></small></h3>
 
-<%= render @comments %>
+<div id="comment">
+</div>
+
+<div id='comments'>
+  <%= render @comments %>
+</div>
