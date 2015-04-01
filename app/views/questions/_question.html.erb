@@ -1,0 +1,7 @@
+<div id="question">
+  <h1><%= @question.inquiry %><small> - <%= @question.user.username %></small></h1>
+
+  <div class="lead">
+    <%= simple_format(@question.post) %> 
+  </div>
+</div>
