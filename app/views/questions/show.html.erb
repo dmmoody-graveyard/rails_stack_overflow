@@ -11,7 +11,7 @@
 </div>
 
 <% if @comments.any? %>
-  <h3>Answers <small><%= link_to "Answer this question", new_question_comment_path(@question) %></small></h3>
+  <h3><%= pluralize(@comments.size, 'Answer') %> <small><%= link_to "Answer this question", new_question_comment_path(@question) %></small></h3>
 
   <ul class="list-unstyled">
     <% @comments.each do |comment| %>
